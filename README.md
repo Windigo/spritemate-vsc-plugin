@@ -47,12 +47,18 @@ This builds spritemate, copies its output into `media/`, and produces `spritemat
 
 ### Update spritemate to a newer version
 
+**Automated (Dependabot):** Dependabot checks daily for new spritemate commits and opens a pull request. Just review and merge it — GitHub Actions then rebuilds the `.vsix` automatically.
+
+**Manual:**
+
 ```bash
 (cd spritemate && git fetch origin && git checkout main)   # or a commit SHA
 git add spritemate
 git commit -m "Update spritemate"
 git push
 ```
+
+> Spritemate has no tags/releases, so you follow the `main` branch (or pin a specific commit SHA).
 
 ### Release a new version
 
