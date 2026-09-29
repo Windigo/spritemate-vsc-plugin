@@ -2,7 +2,7 @@
   "name": "spritemate-visual-studio-code-plugin",
   "displayName": "Spritemate - Commodore 64 Sprite Editor (VS Code Plugin)",
   "description": "A VS Code plugin that runs Spritemate — the Commodore 64 sprite editor by Ingo Hinterding (awsm) — inside a VS Code webview. Draw, animate and export C64 sprites.",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "publisher": "MennoHomanWindigo",
   "author": "Menno Homan (Windigo)",
   "repository": {
