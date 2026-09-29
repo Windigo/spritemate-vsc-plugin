@@ -1,0 +1,59 @@
+name: Build VSIX
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with submodule)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: spritemate/package-lock.json
+
+      - name: Install spritemate dependencies
+        working-directory: spritemate
+        run: npm ci
+
+      - name: Build spritemate
+        working-directory: spritemate
+        run: npm run build
+
+      - name: Copy dist/ to media/
+        run: |
+          rm -rf media
+          cp -R spritemate/dist media
+
+      - name: Package VSIX
+        run: npx --yes @vscode/vsce@latest package
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: spritemate-vsix
+          path: '*.vsix'
+          if-no-files-found: error
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: '*.vsix'
+          generate_release_notes: true

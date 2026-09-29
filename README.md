@@ -32,3 +32,37 @@ This extension wraps the original [Spritemate](https://github.com/Esshahn/sprite
 
 - **Spritemate** (the application) is created by [Ingo Hinterding (awsm)](https://github.com/Esshahn/spritemate) and released under the MIT license.
 - **This VS Code extension** is packaged by Menno Homan (Windigo).
+
+## Development
+
+Spritemate is included as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules), which points at an exact commit of the upstream project.
+
+### Build locally
+
+```bash
+./build-extension.sh
+```
+
+This builds spritemate, copies its output into `media/`, and produces `spritemate-<version>.vsix`.
+
+### Update spritemate to a newer version
+
+```bash
+(cd spritemate && git fetch origin && git checkout main)   # or a commit SHA
+git add spritemate
+git commit -m "Update spritemate"
+git push
+```
+
+### Release a new version
+
+1. Bump `version` in `package.json`.
+2. Tag and push:
+
+```bash
+git tag v1.3.0
+git push origin v1.3.0
+```
+
+GitHub Actions builds the `.vsix` on every push. When you push a `v*` tag, it also creates a GitHub Release with the `.vsix` attached.
+
