@@ -1,8 +1,8 @@
-# Spritemate - C64 Sprite Editor
+# Spritemate - C64 Sprite Editor (VS Code Plugin)
 
 Run **Spritemate**, the browser-based Commodore 64 sprite editor, directly inside VS Code.
 
-This extension wraps the original [Spritemate](https://github.com/Esshahn/spritemate) web app in a VS Code webview panel, so it runs "as-is" in the editor — no browser required.
+This extension is a **VS Code plugin** that wraps the original [Spritemate](https://github.com/Esshahn/spritemate) web app in a VS Code webview panel, so it runs "as-is" in the editor — no browser required.
 
 ## Usage
 
