@@ -1,0 +1,10 @@
+.vscode/**
+.git/**
+.gitignore
+.gitmodules
+node_modules/**
+spritemate/**
+build-extension.sh
+*.vsix
+**/*.map
+.vscodeignore

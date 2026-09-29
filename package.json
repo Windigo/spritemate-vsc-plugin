@@ -1,0 +1,71 @@
+{
+  "name": "spritemate",
+  "displayName": "Spritemate - Commodore 64 Sprite Editor",
+  "description": "Spritemate, the Commodore 64 sprite editor by Ingo Hinterding (awsm), running inside VS Code. Draw, animate and export C64 sprites.",
+  "version": "1.2.1",
+  "publisher": "MennoHomanWindigo",
+  "author": "Menno Homan (Windigo)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Windigo/spritemate-vsc-plugin.git"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "spritemate",
+    "c64",
+    "commodore 64",
+    "commodore64",
+    "sprite",
+    "sprite editor",
+    "pixel",
+    "pixel art",
+    "retro",
+    "8-bit",
+    "8bit",
+    "demoscene"
+  ],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "activationEvents": [
+    "onCommand:spritemate.open"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "spritemate.open",
+        "title": "Spritemate: Open C64 Sprite Editor",
+        "category": "Spritemate"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "spritemate.open",
+          "when": "true"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "spritemate.open",
+        "key": "ctrl+alt+s",
+        "mac": "cmd+alt+s",
+        "when": "true"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.2.2"
+  }
+}
